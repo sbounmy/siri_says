@@ -14,8 +14,8 @@ module SiriSays
     class << self
       def add( regex, block )
         (@plugins ||= []) << {
-          regex: regex,
-          block: block
+          :regex => regex,
+          :block => block
         }
       end
       
@@ -56,9 +56,9 @@ module SiriSays
       def ranges
         [
           # Sceduled events
-          { start: scheduled_start, end: scheduled_end, all_day: false },
+          { :start => scheduled_start, :end => scheduled_end, all_day: false },
           # Immediate events are all-day events
-          { start: immediate_start, end: immediate_end, all_day: true }
+          { :start => immediate_start, :end => immediate_end, all_day: true }
         ]
       end
       
